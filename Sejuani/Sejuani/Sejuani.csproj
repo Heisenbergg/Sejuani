@@ -32,8 +32,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BehaviorSharp">
+      <HintPath>..\..\..\..\..\..\..\LeagueSharp\System\BehaviorSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="clipper_library, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\LeagueSharp\System\clipper_library.dll</HintPath>
+    </Reference>
+    <Reference Include="DevCommom">
+      <HintPath>..\..\..\..\..\..\..\LeagueSharp\System\DevCommom.dll</HintPath>
+    </Reference>
+    <Reference Include="dmgLib2">
+      <HintPath>..\..\..\..\..\..\..\LeagueSharp\System\dmgLib2.dll</HintPath>
+    </Reference>
     <Reference Include="LeagueSharp">
       <HintPath>..\..\..\..\..\..\..\LeagueSharp\System\LeagueSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="LeagueSharp.AppDomainManager">
+      <HintPath>..\..\..\..\..\..\..\LeagueSharp\System\LeagueSharp.AppDomainManager.dll</HintPath>
     </Reference>
     <Reference Include="LeagueSharp.Common">
       <HintPath>..\..\..\..\..\..\..\LeagueSharp\System\LeagueSharp.Common.dll</HintPath>

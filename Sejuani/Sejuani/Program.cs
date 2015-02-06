@@ -39,6 +39,7 @@ namespace sejuani
             W = new Spell(SpellSlot.W, 350);
             E = new Spell(SpellSlot.E, 1000);
             R = new Spell(SpellSlot.R, 1175);
+            Q.SetSkillshot(0.3f, 50, 1000, true, SkillshotType.SkillshotLine);
 
             //Criar o Maenu
             Menu = new Menu("Heisenberg" + ChampName, ChampName, true);
@@ -73,7 +74,7 @@ namespace sejuani
 
 
             Game.OnGameUpdate += Game_OnGameUpdate;
-            Game.PrintChat("Heisenberg" + ChampName + "Injetado");
+            Game.PrintChat("Heisenberg " + ChampName + " Injetado");
             Game.PrintChat("<font color =\"#87CEEB\">Heisenberg Sejuani</font>");
 
 
@@ -86,7 +87,7 @@ namespace sejuani
             if (Player.IsDead)
                 return;
 
-        // check if E ready
+        // check if Q ready
             if (Q.IsReady())
             {
             // draw Aqua circle around the player
@@ -136,7 +137,7 @@ namespace sejuani
             }
         }
 
-            }
-        }
+    }
+}
     
 
