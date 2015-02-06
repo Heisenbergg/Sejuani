@@ -54,7 +54,7 @@ namespace sejuani
 
 
             //Habilidades Menu
-            Menu spellMenu = Menu.AddSubMenu(new Menu("Habilidades", "Habilidades"));
+            Menu spellMenu = Menu.AddSubMenu(new Menu("COMBO", "COMBO"));
             spellMenu.AddItem(new MenuItem("useQ", "Use Q").SetValue(true));
             spellMenu.AddItem(new MenuItem("useW", "Use W").SetValue(true));
             spellMenu.AddItem(new MenuItem("useE", "Use E").SetValue(true));
@@ -71,6 +71,8 @@ namespace sejuani
             //Faz o menu ficar visivel
             Menu.AddToMainMenu();
 
+
+            Game.OnGameUpdate += Game_OnGameUpdate;
             Game.PrintChat("Heisenberg" + ChampName + "Injetado");
             Game.PrintChat("<font color =\"#87CEEB\">Heisenberg Sejuani</font>");
 
@@ -78,6 +80,63 @@ namespace sejuani
 
         }
 
+          private static void Drawing_OnDraw(EventArgs args)
+          {
+        // dont draw stuff while dead
+            if (Player.IsDead)
+                return;
 
-    }
-}
+        // check if E ready
+            if (Q.IsReady())
+            {
+            // draw Aqua circle around the player
+                Utility.DrawCircle(Player.Position, Q.Range, Color.Aqua);
+            }
+            else
+            {
+            // draw DarkRed circle around the player while on cd
+                Utility.DrawCircle(Player.Position, Q.Range, Color.DarkRed);
+            }
+          }
+        
+        
+        
+        
+        
+        
+        
+        private static void Game_OnGameUpdate(EventArgs args)
+        {
+            if (Player.IsDead)
+                return;
+
+            // checks the current Orbwalker mode Combo/Mixed/LaneClear/LastHit
+            if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Combo)
+            {
+                // combo to kill the enemy
+                QSpell();
+            }
+         }
+        private static void QSpell()
+        {
+            //checa se o jogador quer usar o Q
+            if (!Menu.Item("useQ").GetValue<bool>())
+                return;
+
+            Obj_AI_Hero target = TargetSelector.GetTarget(650, TargetSelector.DamageType.Magical);
+            //checa se o E está pronto
+            if (Q.IsReady())
+            {
+                //checa se achou um target valido no range
+                if (target.IsValidTarget(Q.Range))
+                {
+                //Ataque Ele
+                Q.CastOnUnit(target);
+                }
+            }
+        }
+
+            }
+        }
+    
+
