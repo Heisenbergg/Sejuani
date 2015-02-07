@@ -64,7 +64,7 @@ namespace sejuani //HEISENBERG SEJUANI V1.0
             spellMenu.AddItem(new MenuItem("useR", "Use R").SetValue(true));
 
             //Jungler Clear
-            Menu jungler = Menu.AddSubMenu(new Menu("Jungler", "JunglerClear"));
+            Menu jungler = Menu.AddSubMenu(new Menu("JunglerClear", "JunglerClear"));
             jungler.AddItem(new MenuItem("useQ", "Use Q").SetValue(true));
             jungler.AddItem(new MenuItem("useW", "Use W").SetValue(true));
             jungler.AddItem(new MenuItem("useE", "Use E").SetValue(true));
