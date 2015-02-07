@@ -40,7 +40,8 @@ namespace sejuani //HEISENBERG SEJUANI V1.0
             E = new Spell(SpellSlot.E, 1000);
             R = new Spell(SpellSlot.R, 1175);
             Q.SetSkillshot(0.3f, 50, 1000, true, SkillshotType.SkillshotLine);
-
+            R.SetSkillshot(0.3f, 50, 1000, true, SkillshotType.SkillshotLine);
+            
             //Criar o Maenu
             Menu = new Menu("Heisenberg" + ChampName, ChampName, true);
 
@@ -67,7 +68,7 @@ namespace sejuani //HEISENBERG SEJUANI V1.0
 
 
             Game.OnGameUpdate += Game_OnGameUpdate;
-            Game.PrintChat("Heisenberg " + ChampName + " Injetado outraskills");
+            Game.PrintChat("Heisenberg " + ChampName + " Injetado TesteR");
             Game.PrintChat("<font color =\"#87CEEB\">Heisenberg Sejuani</font>");
 
 
@@ -207,7 +208,7 @@ namespace sejuani //HEISENBERG SEJUANI V1.0
                 return;
 
             Obj_AI_Hero target = TargetSelector.GetTarget(1175, TargetSelector.DamageType.Magical);
-            //checa se o E está pronto
+            //checa se o R está pronto
             if (R.IsReady())
             {
                 //checa se achou um target valido no range
