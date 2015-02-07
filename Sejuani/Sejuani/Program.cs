@@ -62,13 +62,6 @@ namespace sejuani
             spellMenu.AddItem(new MenuItem("useR", "Use R").SetValue(true));
 
 
-
-
-
-
-
-
-
             //Faz o menu ficar visivel
             Menu.AddToMainMenu();
 
@@ -116,6 +109,9 @@ namespace sejuani
             {
                 //Combo para matar o inimigo
                 QSpell();
+                WSpell();
+                ESpell();
+                RSpell();
             }
         }
         private static void QSpell()
@@ -125,7 +121,7 @@ namespace sejuani
                 return;
 
             Obj_AI_Hero target = TargetSelector.GetTarget(650, TargetSelector.DamageType.Magical);
-            //checa se o E está pronto
+            //checa se o Q está pronto
             if (Q.IsReady())
             {
                 //checa se achou um target valido no range
@@ -136,6 +132,48 @@ namespace sejuani
                 }
             }
         }
+        private static void WSpell()
+        {
+
+            if (!Menu.Item("useW").GetValue<bool>())
+                return;
+
+            Obj_AI_Hero target = TargetSelector.GetTarget(350, TargetSelector.DamageType.Magical);
+            //checa se o W está pronto
+            if (W.IsReady())
+            {
+                //checa se achou um target valido no range
+                if (target.IsValidTarget(W.Range))
+                {
+                    //Ataque Ele
+                    W.Cast(target.Position);
+                }
+            }
+
+
+        }
+        private static void ESpell()
+        {
+            if (!Menu.Item("useE").GetValue<bool>())
+                return;
+
+            Obj_AI_Hero target = TargetSelector.GetTarget(1000, TargetSelector.DamageType.Magical);
+            //checa se o E está pronto
+            if (E.IsReady())
+            {
+                //checa se achou um target valido no range
+                if (target.IsValidTarget(E.Range))
+                {
+                    //Ataque Ele
+                    E.Cast(target.Position);
+                }
+            }
+        }
+        private static void RSpell()
+        {
+
+        }
+
 
     }
 }
