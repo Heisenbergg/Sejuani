@@ -132,7 +132,7 @@ namespace sejuani
                 if (target.IsValidTarget(Q.Range))
                 {
                     //Ataque Ele
-                    Q.Cast(target);
+                    Q.Cast(target.Position);
                 }
             }
         }
