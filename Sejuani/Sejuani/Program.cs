@@ -91,6 +91,19 @@ namespace sejuani
                 //Desenha um circulo vermelho ao redor do jogador
                 Utility.DrawCircle(Player.Position, Q.Range, Color.DarkRed);
             }
+            
+            //Checa se o W está Pronto
+            if (W.IsReady())
+            {
+                //Desenha uma circulo color Aqua ao redor do jogador
+                Utility.DrawCircle(Player.Position, W.Range, Color.Aqua);
+            }
+            else
+            {
+                //Desenha um circulo vermelho ao redor do jogador
+                Utility.DrawCircle(Player.Position, W.Range, Color.DarkRed);
+            }
+
         }
 
 
