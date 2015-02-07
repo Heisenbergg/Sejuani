@@ -74,7 +74,7 @@ namespace sejuani
 
 
             Game.OnGameUpdate += Game_OnGameUpdate;
-            Game.PrintChat("Heisenberg " + ChampName + " Injetado QCastteste");
+            Game.PrintChat("Heisenberg " + ChampName + " Injetado positionteste");
             Game.PrintChat("<font color =\"#87CEEB\">Heisenberg Sejuani</font>");
 
 
