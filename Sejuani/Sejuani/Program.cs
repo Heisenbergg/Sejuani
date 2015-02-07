@@ -57,19 +57,32 @@ namespace sejuani //HEISENBERG SEJUANI V1.0
 
             //Habilidades Menu(COMBO)
             Menu spellMenu = Menu.AddSubMenu(new Menu("Combo", "combo"));
+            
             spellMenu.AddItem(new MenuItem("useQ", "Use Q").SetValue(true));
             spellMenu.AddItem(new MenuItem("useW", "Use W").SetValue(true));
             spellMenu.AddItem(new MenuItem("useE", "Use E").SetValue(true));
             spellMenu.AddItem(new MenuItem("useR", "Use R").SetValue(true));
-            spellMenu.AddItem(new MenuItem("ActiveCombo", "Combo!").SetValue(new KeyBind(32, KeyBindType.Press))); //NAO TA FUNCIOANDO
+
+            //Jungler Clear
+            Menu jungler = Menu.AddSubMenu(new Menu("Jungler", "JunglerClear"));
+            jungler.AddItem(new MenuItem("useQ", "Use Q").SetValue(true));
+            jungler.AddItem(new MenuItem("useW", "Use W").SetValue(true));
+            jungler.AddItem(new MenuItem("useE", "Use E").SetValue(true));
+            
+
+
+
 
 
             //Faz o menu ficar visivel
             Menu.AddToMainMenu();
 
+
+            Drawing.OnDraw += Drawing_OnDraw;
+            
             Game.OnGameUpdate += Game_OnGameUpdate;
             
-            Game.PrintChat("Heisenberg " + ChampName + " Injetado TesteMenu");
+            Game.PrintChat("Heisenberg " + ChampName + " Injetado TesteMenuJungler");
             Game.PrintChat("<font color =\"#87CEEB\">Heisenberg Sejuani</font>");
         }
 
