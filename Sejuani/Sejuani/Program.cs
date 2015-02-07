@@ -9,7 +9,7 @@ using LeagueSharp.Common;
 using SharpDX;
 using Color = System.Drawing.Color;
 
-namespace sejuani
+namespace sejuani //HEISENBERG SEJUANI V1.0
 {
     class Program
     {
@@ -67,7 +67,7 @@ namespace sejuani
 
 
             Game.OnGameUpdate += Game_OnGameUpdate;
-            Game.PrintChat("Heisenberg " + ChampName + " Injetado positionteste");
+            Game.PrintChat("Heisenberg " + ChampName + " Injetado outraskills");
             Game.PrintChat("<font color =\"#87CEEB\">Heisenberg Sejuani</font>");
 
 
@@ -104,12 +104,31 @@ namespace sejuani
                 Utility.DrawCircle(Player.Position, W.Range, Color.DarkRed);
             }
 
+            //Checa se o E está Pronto
+            if (E.IsReady())
+            {
+                //Desenha uma circulo color Aqua ao redor do jogador
+                Utility.DrawCircle(Player.Position, E.Range, Color.Aqua);
+            }
+            else
+            {
+                //Desenha um circulo vermelho ao redor do jogador
+                Utility.DrawCircle(Player.Position, E.Range, Color.DarkRed);
+            }
+            
+            //Checa se o R está Pronto
+            if (R.IsReady())
+            {
+                //Desenha uma circulo color Aqua ao redor do jogador
+                Utility.DrawCircle(Player.Position, R.Range, Color.Aqua);
+            }
+            else
+            {
+                //Desenha um circulo vermelho ao redor do jogador
+                Utility.DrawCircle(Player.Position, R.Range, Color.DarkRed);
+            }
+
         }
-
-
-
-
-
 
 
         private static void Game_OnGameUpdate(EventArgs args)
@@ -117,7 +136,7 @@ namespace sejuani
             if (Player.IsDead)
                 return;
 
-            // checks the current Orbwalker mode Combo/Mixed/LaneClear/LastHit
+            // Checa o modo atual do Orbwalker Combo/Mixed/LaneClear/LastHit
             if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Combo)
             {
                 //Combo para matar o inimigo
@@ -184,9 +203,20 @@ namespace sejuani
         }
         private static void RSpell()
         {
+            if (!Menu.Item("useR").GetValue<bool>())
+                return;
 
+            Obj_AI_Hero target = TargetSelector.GetTarget(1175, TargetSelector.DamageType.Magical);
+            //checa se o E está pronto
+            if (R.IsReady())
+            {
+                //checa se achou um target valido no range
+                if (target.IsValidTarget(R.Range))
+                {
+                    //Ataque Ele
+                    R.Cast(target.Position);
+                }
+            }
         }
-
-
     }
 }
