@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +18,7 @@ namespace sejuani
         private static Obj_AI_Hero Player { get { return ObjectManager.Player; } } // Declara o ObjectManager.Player é necessario para trabalharmos com um champion
 
         public static Menu Menu; //declara o menu
-        
+
         private static Spell Q, W, E, R;  //Declara habilidades
 
         static void Main(string[] args)
@@ -60,29 +60,29 @@ namespace sejuani
             spellMenu.AddItem(new MenuItem("useW", "Use W").SetValue(true));
             spellMenu.AddItem(new MenuItem("useE", "Use E").SetValue(true));
             spellMenu.AddItem(new MenuItem("useR", "Use R").SetValue(true));
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
+
+
             //Faz o menu ficar visivel
             Menu.AddToMainMenu();
 
 
             Game.OnGameUpdate += Game_OnGameUpdate;
-            Game.PrintChat("Heisenberg " + ChampName + " Injetado");
+            Game.PrintChat("Heisenberg " + ChampName + " Injetado QCastteste");
             Game.PrintChat("<font color =\"#87CEEB\">Heisenberg Sejuani</font>");
 
 
 
         }
 
-          private static void Drawing_OnDraw(EventArgs args)
-          {
+        private static void Drawing_OnDraw(EventArgs args)
+        {
             //Se estiver morto retorna
             if (Player.IsDead)
                 return;
@@ -90,22 +90,22 @@ namespace sejuani
             // checa se o Q está pronto
             if (Q.IsReady())
             {
-            //Desenha uma circulo color Aqua ao redor do jogador
+                //Desenha uma circulo color Aqua ao redor do jogador
                 Utility.DrawCircle(Player.Position, Q.Range, Color.Aqua);
             }
             else
             {
-            //Desenha um circulo vermelho ao redor do jogador
+                //Desenha um circulo vermelho ao redor do jogador
                 Utility.DrawCircle(Player.Position, Q.Range, Color.DarkRed);
             }
-          }
-        
-        
-        
-        
-        
-        
-        
+        }
+
+
+
+
+
+
+
         private static void Game_OnGameUpdate(EventArgs args)
         {
             if (Player.IsDead)
@@ -117,7 +117,7 @@ namespace sejuani
                 //Combo para matar o inimigo
                 QSpell();
             }
-         }
+        }
         private static void QSpell()
         {
             //checa se o jogador quer usar o Q
@@ -131,13 +131,11 @@ namespace sejuani
                 //checa se achou um target valido no range
                 if (target.IsValidTarget(Q.Range))
                 {
-                //Ataque Ele
-                Q.CastOnUnit(target);
+                    //Ataque Ele
+                    Q.Cast(target);
                 }
             }
         }
 
     }
 }
-    
-
