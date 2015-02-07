@@ -43,7 +43,7 @@ namespace sejuani //HEISENBERG SEJUANI V1.0
             R.SetSkillshot(0.3f, 50, 1000, true, SkillshotType.SkillshotLine);
             
             //Criar o Maenu
-            Menu = new Menu("Heisenberg" + ChampName, ChampName, true);
+            Menu = new Menu("Heisenberg " + ChampName, ChampName, true);
 
             //Menu Orbwalker
             Menu orbwalkerMenu = Menu.AddSubMenu(new Menu("Orbwalker", "Orbwalker"));
@@ -56,12 +56,12 @@ namespace sejuani //HEISENBERG SEJUANI V1.0
 
 
             //Habilidades Menu(COMBO)
-            Menu spellMenu = Menu.AddSubMenu(new Menu("COMBO", "COMBO"));
+            Menu spellMenu = Menu.AddSubMenu(new Menu("Combo", "combo"));
             spellMenu.AddItem(new MenuItem("useQ", "Use Q").SetValue(true));
             spellMenu.AddItem(new MenuItem("useW", "Use W").SetValue(true));
             spellMenu.AddItem(new MenuItem("useE", "Use E").SetValue(true));
             spellMenu.AddItem(new MenuItem("useR", "Use R").SetValue(true));
-            spellMenu.AddItem(new MenuItem("ActiveCombo", "Combo!").SetValue(new KeyBind(32, KeyBindType.Press)));
+            spellMenu.AddItem(new MenuItem("ActiveCombo", "Combo!").SetValue(new KeyBind(32, KeyBindType.Press))); //NAO TA FUNCIOANDO
 
 
             //Faz o menu ficar visivel
