@@ -83,19 +83,19 @@ namespace sejuani
 
           private static void Drawing_OnDraw(EventArgs args)
           {
-        // dont draw stuff while dead
+            //Se estiver morto retorna
             if (Player.IsDead)
                 return;
 
-        // check if Q ready
+            // checa se o Q está pronto
             if (Q.IsReady())
             {
-            // draw Aqua circle around the player
+            //Desenha uma circulo color Aqua ao redor do jogador
                 Utility.DrawCircle(Player.Position, Q.Range, Color.Aqua);
             }
             else
             {
-            // draw DarkRed circle around the player while on cd
+            //Desenha um circulo vermelho ao redor do jogador
                 Utility.DrawCircle(Player.Position, Q.Range, Color.DarkRed);
             }
           }
@@ -114,7 +114,7 @@ namespace sejuani
             // checks the current Orbwalker mode Combo/Mixed/LaneClear/LastHit
             if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Combo)
             {
-                // combo to kill the enemy
+                //Combo para matar o inimigo
                 QSpell();
             }
          }
